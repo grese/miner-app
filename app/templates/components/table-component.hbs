@@ -1,0 +1,33 @@
+<div class="table-responsive">
+<table class="table-component table table-hover">
+    <thead>
+        <tr>
+            {{#each col in parsedColumns}}
+                <th width="{{col.columnWidth}}">{{col.headerCellText}}</th>
+            {{/each}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#each row in rows}}
+            <tr>
+                {{#each col in parsedColumns}}
+                    <td>{{tableComponentCell row col}}</td>
+                {{/each}}
+            </tr>
+        {{/each}}
+    </tbody>
+    {{#if hasFooter}}
+        <tfoot>
+        <tr>
+            {{#each col in parsedColumns}}
+                {{#if col.getFooterCellContent}}
+                    <td>{{tableComponentFooterCell rows col}}</td>
+                {{else}}
+                    <td></td>
+                {{/if}}
+            {{/each}}
+        </tr>
+        </tfoot>
+    {{/if}}
+</table>
+</div>

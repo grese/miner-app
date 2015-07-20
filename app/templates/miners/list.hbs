@@ -1,0 +1,27 @@
+<header class="miners-header row">
+    <div class="col-md-12">
+        <h3 class="table-title">Miners</h3>
+        <div class="miner-list-controls pull-right">
+            {{!--<div class="btn-group">
+                <button type="button" {{action 'toggleShowInactive'}}
+                class="btn btn-default btn-xs {{if isShowInactiveActive 'active' ''}}">
+                    <i class="fa fa-eye fa-lg"></i>&nbsp;Show Inactive Miners
+                </button>
+            </div>--}}
+        </div>
+    </div>
+</header>
+
+<div id="miners-list-container">
+        {{#if hasMiners}}
+            <div class="well">
+                {{table-component columns=columns rows=rows hasFooter=true}}
+            </div>
+        {{else}}
+            <br/>
+            <div class="no-miners alert alert-info" role="alert">
+                <p><span class="fa fa-info-circle fa-lg"></span>&nbsp;&nbsp;<b>No Miners...</b>
+                &nbsp;&nbsp;&nbsp;CG Miner is not reporting that there are any miners right now.</p>
+            </div>
+        {{/if}}
+</div>

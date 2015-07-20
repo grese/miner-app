@@ -1,0 +1,104 @@
+<article id="dashboard">
+    <header id="dashboard-header" class="row">
+        <div class="col-md-12 dashboard-title-container">
+
+            <h1 class="dashboard-title">Dashboard</h1>
+            <div id="dashboard-controls-container" class="pull-right">
+
+                <div class="dashboard-controls-buttons-container clearfix">
+                    <div class="pull-right">
+                        <div class="dashboard-speed-metric-container">
+                            <div class="btn-group">
+                                <button {{action 'changeSpeedMetric' 'MH'}}
+                                        class="btn btn-default btn-xs {{if speedIsGh '' 'active'}}"
+                                        id="dashboard-speed-mh" type="button">
+                                    Mh/s
+                                </button>
+                                <button {{action 'changeSpeedMetric' 'GH'}}
+                                        class="btn btn-default btn-xs {{if speedIsGh 'active'}}"
+                                        id="dashboard-speed-gh" type="button">
+                                    Gh/s
+                                </button>
+                            </div>
+                        </div>
+                        <div class="dashboard-refresh">
+                            <div class="btn-group">
+                                <button type="button" {{action 'refreshDashboard'}} class="btn btn-default btn-xs pull-right">
+                                    <i class="fa fa-refresh fa-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-datetimerange-picker-container">
+                    {{datetimerange-picker startDateBinding='startDate' endDateBinding='endDate'}}
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="dashboard-summary-container">
+        {{#if isMobile}}
+            {{render 'dashboard.summary-mobile' summary}}
+        {{else}}
+            {{render 'dashboard.summary' summary}}
+        {{/if}}
+
+    </section>
+    <section id="dashboard-analytics-container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="dashboard-chart-info muted-text">Overall Performance for:&nbsp;&nbsp;
+                    <span class="dashboard-chart-daterange">{{dateRange}}</span>
+                </p>
+                {{#if summaryTrendAvailable}}
+                    {{line-chart model=summaryTrend metric=speedMetric key='SUMMARY'}}
+                {{else}}
+                    <div class="dashboard-no-chart-data-msg">
+                        <div class="alert alert-info">
+                            <span class="alert-icon fa fa-info-circle fa-lg"></span>
+                            <span class="alert-title"></span>&nbsp;&nbsp;
+                            <span class="alert-message">No data available yet for summary chart.. Refresh in a few moments.</span>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+            <div class="col-md-6">
+                <p class="dashboard-chart-info muted-text">Performance by Device for:&nbsp;&nbsp;
+                    <span class="dashboard-chart-daterange">{{dateRange}}</span>
+                </p>
+                {{#if minerTrendAvailable}}
+                    {{line-chart model=minerTrend key='MINER' metric=speedMetric tickInterval=minerChartInterval}}
+                {{else}}
+                    <div class="dashboard-no-chart-data-msg">
+                        <div class="alert alert-info">
+                            <span class="alert-icon fa fa-info-circle fa-lg"></span>
+                            <span class="alert-title"></span>&nbsp;&nbsp;
+                            <span class="alert-message">No data available yet for device chart.. Refresh in a few moments.</span>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+
+    <hr/>
+
+    <section class="dashboard-pools-table-container">
+        {{render 'poolstats.list' model.poolstats controller='poolstats.list'}}
+    </section>
+
+    <section class="dashboard-miners-table-container">
+        {{#if showInactiveMiners}}
+            {{render 'miners.list' allMiners speedMetric=speedMetric}}
+        {{else}}
+            {{render 'miners.list' activeMiners speedMetric=speedMetric}}
+        {{/if}}
+
+    </section>
+
+    <section class="dashboard-restart-miner-container">
+        <h3>Restart/Reboot</h3>
+        {{render 'elements.restart-reboot' controller='elements.restart-reboot'}}
+    </section>
+
+</article>

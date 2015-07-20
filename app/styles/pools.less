@@ -1,0 +1,50 @@
+@import "variables";
+
+.pool-config-container{
+  border: none;
+  background-color: transparent;
+  padding-bottom: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+.pool-config-container:nth-of-type(1){
+  padding-top: 0;
+  border-top: none;
+}
+.pool-config-container .pool-enabled-switch{
+  margin-top: 3px;
+}
+@media (max-width: @screen-xs-max){
+  .pool-config-container .pool-enabled-switch{
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
+.pool-config-container .pool-delete-container button.delete-btn{
+  margin-top: 25px;
+}
+.pool-priority-container .btn-group{
+  padding-top: 4px;
+}
+.pool-priority-container .btn{
+  padding: 1px 6px;
+  line-height: 1.17;
+}
+.pools-list-controls-container{
+  margin-bottom:10px;
+}
+.rotate-interval{
+  padding-top: 5px;
+}
+.pools-strategy-container.mobile{
+  margin-bottom: 10px;
+}
+.pool-config-mobile .pool-settings-container{
+  margin-top: 7px;
+}
+.pool-config-mobile .pool-settings-container .pool-enabled-switch{
+  padding-top: 4px;
+}
+.pool-config-mobile .pool-settings-container .pool-priority-container{
+  text-align: center;
+}

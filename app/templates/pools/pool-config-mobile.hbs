@@ -1,0 +1,48 @@
+<div class="pool-config-container pool-config-mobile list-group-item">
+    <div class="row">
+        <div class="col-md-2 pool-name-container">
+            <label>Name</label>
+            {{input type='text' class='form-control' value=pool.name placeholder='Pool name'}}
+        </div>
+        <div class="col-md-2 pool-url-container">
+            <label>URL</label>
+            {{input type='text' class='form-control' value=pool.url placeholder='Url'}}
+        </div>
+        <div class="col-md-2 pool-username-container">
+            <label>Username</label>
+            {{input type='text' class='form-control' value=pool.username placeholder='username'}}
+        </div>
+        <div class="col-md-2 pool-password-container">
+            <label>Password</label>
+            {{input type='password' class='form-control' value=pool.password placeholder='password'}}
+        </div>
+    </div>
+    <div class="row pool-settings-container">
+        <div class="col-xs-3">
+            <label>Enabled</label><br/>
+            <div class="pool-enabled-switch">
+                {{view 'elements.switch' checked=pool.enabled}}
+            </div>
+        </div>
+        <div class="col-xs-3 pool-quota-container">
+            <label>Quota</label>
+            {{view 'elements.spinner' value=pool.quota width=50}}
+        </div>
+        <div class="col-xs-3 pool-priority-container">
+            <label>Priority</label><br/>
+            <div class="btn-group-vertical">
+                <button {{action 'increasePriority' pool}} type="button" class="priority-up btn btn-default btn-xs">
+                    <span class="fa fa-caret-up fa-lg"></span>
+                </button>
+                <button {{action 'decreasePriority' pool}} type="button" class="priority-down btn btn-default btn-xs">
+                    <span class="fa fa-caret-down fa-lg"></span>
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-1 pool-delete-container">
+            <button class="delete-btn btn btn-xs btn-danger" {{action 'deletePool' pool}}>
+                <i class="fa fa-trash-o fa-lg"></i>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<h3 class="table-title">Pools</h3>
+<div id="poolstats-list-container">
+    {{#if hasPoolStats}}
+        <div class="well">
+            {{table-component columns=columns rows=rows hasFooter=true}}
+        </div>
+    {{else}}
+        <br/>
+        <div class="no-miners alert alert-info" role="alert">
+            <p><span class="fa fa-info-circle fa-lg"></span>&nbsp;&nbsp;<b>No Pools...</b>
+                &nbsp;&nbsp;&nbsp;CG Miner is not reporting that you have no active pools.</p>
+        </div>
+    {{/if}}
+</div>

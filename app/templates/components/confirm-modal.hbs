@@ -1,0 +1,37 @@
+<div class="modal fade" id="{{modalId}}" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class='{{closeIconClass}}'></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    {{#if titleUseHTML}}
+                        {{{title}}}
+                    {{else}}
+                        {{title}}
+                    {{/if}}
+                </h4>
+            </div>
+            <div class="modal-body">
+                {{#if messageUseHTML}}
+                    {{{message}}}
+                {{else}}
+                    {{message}}
+                {{/if}}
+            </div>
+            <div class="modal-footer">
+                {{#if hasCancel}}
+                    <button id="{{cancelButtonId}}" type="button" class="btn btn-sm btn-default" data-dismiss="modal">
+                        <i class='{{cancelIconClass}}'></i>&nbsp;
+                        {{cancelButtonText}}
+                    </button>
+                {{/if}}
+                <button id='{{okButtonId}}' type="button" class="btn btn-sm btn-primary">
+                    <i class='{{okIconClass}}'></i>&nbsp;
+                    {{okButtonText}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

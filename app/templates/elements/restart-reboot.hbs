@@ -1,0 +1,45 @@
+<div class="well">
+    <div class="restart-reboot-container row">
+            <div class="col-xs-6 col-md-2 col-md-offset-4">
+                <p class="restart-reboot-info"><i class="fa fa-info-circle fa-lg"></i>&nbsp;Restart CGMiner</p>
+                <button class="restart-btn restart-reboot-btn btn btn-primary btn-sm" {{action 'restartClicked'}}>
+                    <i class="fa fa-repeat fa-lg"></i>
+                    &nbsp;Restart
+                </button>
+            </div>
+            <div class="col-xs-6 col-md-2">
+                <p class="restart-reboot-info"><i class="fa fa-info-circle fa-lg"></i>&nbsp;Reboot Ras Pi</p>
+                <button class="reboot-btn restart-reboot-btn btn btn-primary btn-sm" {{action 'rebootClicked'}}>
+                    <i class="fa fa-power-off fa-lg"></i>
+                    &nbsp;Reboot
+                </button>
+            </div>
+    </div>
+</div>
+{{confirm-modal
+visibleBinding='restartModalVisible'
+cancelButtonText='Cancel'
+okButtonText='Restart Now'
+cancelAction='cancelRestart'
+okAction='doRestart'
+titleUseHTML=false
+title='Restart Miner?'
+messageUseHTML=true
+message='<p>You are about to restart the machine\'s mining software.  The miner will be offline for about 30 seconds
+while the miners restart, and all analytics data will be cleared... Are you sure you want to do this?</p>
+<p>Click \'Cancel\' to cancel, or \'Restart Now\' to continue.</p>'
+}}
+
+{{confirm-modal
+visibleBinding='rebootModalVisible'
+cancelButtonText='Cancel'
+okButtonText='Reboot Now'
+cancelAction='cancelReboot'
+okAction='doReboot'
+titleUseHTML=false
+title='Reboot Machine?'
+messageUseHTML=true
+message='<p>You are about to reboot the machine.  The machine will be offline for about 60 seconds while it reboots,
+and all of the analytics data will be cleared... Are you sure you want to do this?</p>
+<p>Click \'Cancel\' to cancel, or \'Restart Now\' to continue.</p>'
+}}

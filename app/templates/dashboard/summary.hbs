@@ -1,0 +1,21 @@
+<h3>Summary</h3>
+<div class="dashboard-summary">
+    <div class="elapsedTime dashboard-summary-item">
+        <div class="summary-item-value">
+            {{format-elapsed-time model.elapsed}}
+        </div>
+        <label class="summary-item-title">Elapsed Time</label>
+    </div>
+    <div class="mhsAv dashboard-summary-item">
+            <div class="summary-item-value">
+                {{format-decimal model.avg 2 model.speedMetric}}
+            </div>
+            <label class="summary-item-title">Avg. {{format-capitalize model.speedMetric}}/s</label>
+    </div>
+    <div class="totalMhs dashboard-summary-item">
+        <div class="summary-item-value">
+            {{format-decimal model.total 2 model.speedMetric}}
+        </div>
+        <label class="summary-item-title">Total {{format-capitalize model.speedMetric}}</label>
+    </div>
+</div>

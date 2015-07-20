@@ -1,0 +1,87 @@
+@import "variables.less";
+
+// General Settings Page Styles:
+.save-settings-container-header .save-settings{
+  margin-top: 30px;
+}
+
+// Analytics Settings Styles
+.analytics-settings-container .basic-settings{
+  padding: 0 20px 15px 20px;
+}
+.analytics-settings-container .data-interval-postfix-label-col{
+  padding-top: 30px;
+  padding-left: 0;
+}
+.analytics-settings-container .data-interval-input-postfix{
+  color: #888;
+  font-weight: 100;
+  font-size: 0.9em;
+  margin-left: -19px;
+}
+.analytics-settings-container .data-interval-input-container,
+.analytics-settings-container .data-interval-input-postfix{
+  display: inline-block;
+}
+.analytics-settings-container .data-collection-enabled .bootstrap-switch{
+  margin-top: 3px;
+}
+.analytics-settings-container .data-collection-disabled .data-collection-interval{
+  opacity: 0.5;
+}
+.analytics-enabled-switch{
+  margin-top: 9px;
+}
+
+
+// Notification Settings Styles
+.notification-settings{
+  padding-top: 20px;
+}
+.notification-settings .basic-settings{
+  margin-bottom: 15px;
+  padding: 0 25px 25px 25px;
+  border-bottom: 1px solid #ddd;
+}
+.notification-settings .secure-settings{
+  padding: 0 25px;
+}
+.notification-settings .secure-settings .secure-smtp-enabled .bootstrap-switch.bootstrap-switch-wrapper{
+  margin-top: 5px;
+}
+.notification-settings .save-notification button{
+  margin-bottom: 7px;
+  margin-right: 25px;
+  margin-top: 20px;
+}
+.settings-smtp-auth-port{
+  max-width: 100px;
+}
+.smtp-auth-label{
+  display: block
+}
+.smtp-auth-switch{
+  margin-top: 9px;
+}
+@media (max-width: @screen-xs-max){
+  .smtp-auth-switch{
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
+
+// User Settings Styles:
+.save-user button{
+  margin-right: 25px;
+  margin-bottom: 7px;
+  margin-top: 20px;
+}
+.user-settings-container .username-field{
+  margin-bottom: 28px;
+}
+
+#application-alert-container .alert-element{
+  margin-top: 15px;
+  margin-bottom: -5px;
+}
+

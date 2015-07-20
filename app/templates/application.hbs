@@ -1,3 +1,9 @@
-<h2 id="title">Welcome to Ember.js</h2>
-
-{{outlet}}
+<div class="application-container {{if isIPhone 'iPhone'}} {{if isIPad 'iPad'}}">
+    {{partial "header"}}
+    <div id="hero-container">{{outlet "hero"}}</div>
+    <div id="application-outlet-container" class="container">
+        <div id="application-alert-container">{{outlet "alert"}}</div>
+        {{outlet}}
+    </div>
+    {{partial "footer"}}
+</div>

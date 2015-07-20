@@ -1,0 +1,40 @@
+
+<div class="col-xs-6 col-md-3">
+    <label>Strategy:&nbsp;
+        <button {{action 'openStrategyInfo'}} class="btn-link">
+            <span class="fa fa-info-circle fa-lg info"></span>
+        </button>
+    </label>
+    {{view 'elements.select-input' content=options value=model.value.strategy}}
+</div>
+<div class="col-xs-2 col-md-2">
+    {{#if isStrategyRotate}}
+        <label>Minutes:</label>
+        {{view 'elements.spinner' class='rotate-interval' value=model.value.inteval width=50 min=1}}
+    {{/if}}
+</div>
+
+
+{{confirm-modal
+hasCancel=false
+visibleBinding='strategyInfoVisible'
+okButtonText='Ok'
+okAction='closeStrategyInfo'
+titleUseHTML=false
+title='Pool Strategies'
+messageUseHTML=true
+message="<dl><dt>Failover</dt><dd>The default strategy is failover. This means that if you input a number of
+pools, it will try to use them as a priority list, moving away from the 1st
+to the 2nd, 2nd to 3rd and so on. If any of the earlier pools recover, it will
+move back to the higher priority ones.</dd><br/><dt>Round Robin</dt><dd>This strategy only moves from one pool to the next when the current one falls
+idle and makes no attempt to move otherwise.</dd><br/><dt>Rotate</dt><dd>This strategy moves at user-defined intervals from one active pool to the next,
+skipping pools that are idle.</dd><br/><dt>Load Balance</dt><dd>This strategy sends work to all the pools on a quota basis. By default, all
+pools are allocated equal quotas unless specified with --quota. This
+apportioning of work is based on work handed out, not shares returned so is
+independent of difficulty targets or rejected shares. While a pool is disabled
+or dead, its quota is dropped until it is re-enabled. Quotas are forward
+looking, so if the quota is changed on the fly, it only affects future work.
+If all pools are set to zero quota or all pools with quota are dead, it will
+fall back to a failover mode. See quota below for more information.</dd><br/><dt>Balance</dt><dd>This strategy monitors the amount of difficulty 1 shares solved for each pool
+and uses it to try to end up doing the same amount of work for all pools.</dd></dl>"
+}}

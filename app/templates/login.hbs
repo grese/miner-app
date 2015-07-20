@@ -1,0 +1,17 @@
+<div id="login-form-container">
+    <h1>Login</h1>
+    <form id="login-form" {{action 'login' on='submit'}}>
+        <div class="form-field">
+            <label>Username</label>
+            {{input type='text' value=model.username name='username' class='form-control'}}
+        </div>
+        <div class="form-field">
+            <label>Password</label>
+            {{input type='password' value=model.password name='password' class='form-control'}}
+        </div>
+        <div class="form-submit">
+            {{spinner-button type="submit" size="sm" color="primary"
+            iconClass="fa fa-sign-in" buttonText="Login" isLoading=inProgress}}
+        </div>
+    </form>
+</div>

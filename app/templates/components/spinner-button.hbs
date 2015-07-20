@@ -1,0 +1,27 @@
+
+
+{{#if _hasAction}}
+    <button {{action actionName}}
+    type="{{type}}"
+    id="{{id}}"
+    class="btn {{_sizeClass}} {{_colorClass}} {{_activeClass}}"
+    disabled={{_disabledAttr}}>
+      {{#if isLoading}}
+        <span {{bind-attr class="spinnerClass"}}></span>
+      {{else}}
+        <span {{bind-attr class="iconClass"}}></span>&nbsp;{{buttonText}}
+      {{/if}}
+    </button>
+{{else}}
+    <button
+    type="{{type}}"
+    id="{{id}}"
+    class="btn {{_sizeClass}} {{_colorClass}} {{_activeClass}}"
+    disabled={{_disabledAttr}}>
+      {{#if isLoading}}
+        <span {{bind-attr class="spinnerClass"}}></span>
+      {{else}}
+        <span {{bind-attr class="iconClass"}}></span>&nbsp;{{buttonText}}
+      {{/if}}
+    </button>
+{{/if}}

@@ -1,0 +1,39 @@
+<h3>Notification Settings</h3>
+<div class="notification-settings well">
+
+    {{outlet "alert"}}
+
+    <div class="basic-settings row">
+        <h6>SMTP Settings:</h6>
+        <div class="col-md-3 secure-smtp-enabled">
+            <label>Email:</label>
+            {{input placeholder='username@example.com' class='form-control' value=model.value.toAddress name='toAddress'}}
+        </div>
+        <div class="col-md-3">
+            <label>SMTP Server</label>
+            {{input placeholder='smtp.mail.example.com' class='form-control' value=model.value.smtpServer name='smtpServer'}}
+        </div>
+    </div>
+    <div class="secure-settings row">
+        <h6>Secure SMTP:</h6>
+        <div class="col-md-1">
+            <label class="smtp-auth-label">SMTP</label>
+            <div class="smtp-auth-switch">
+                {{view 'elements.switch' checked=model.value.smtpAuth name='smtpAuth'}}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label>SMTP Username</label>
+            {{input placeholder='username@example.com' class='form-control' value=model.value.smtpAuthUsername name='smtpAuthUsername'}}
+        </div>
+        <div class="col-md-3">
+            <label>SMTP Password</label>
+            {{input type='password' class='form-control' value=model.value.smtpAuthPassword name='smtpAuthPassword' placeholder='password'}}
+        </div>
+        <div class="col-md-2">
+            <label>SMTP Port</label>
+            {{input placeholder='587' type='number' class='form-control settings-smtp-auth-port' value=model.value.smtpAuthPort name='smtpAuthPort'}}
+        </div>
+    </div>
+
+</div>

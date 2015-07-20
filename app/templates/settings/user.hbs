@@ -1,0 +1,16 @@
+<h3>User Settings</h3>
+<div class="user-settings-container well">
+    {{outlet "alert"}}
+    <div class="row">
+        <div class="username-field col-md-3">
+            <label>Username:</label>
+            {{input class='form-control' placeholder='username' value=model.username name='username'}}
+        </div>
+        <div class="password-field col-md-3">
+            <label>Password:</label>
+            {{input type='password' placeholder='new password' class='form-control' value=model.password name='password'}}
+            <label>Confirm Password:</label>
+            {{input type='password' placeholder='confirm new password' value=model.passwordConfirmation class='form-control password-conf'}}
+        </div>
+    </div>
+</div>

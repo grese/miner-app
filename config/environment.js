@@ -5,14 +5,17 @@ module.exports = function(environment) {
     modulePrefix: 'miner-app',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
       }
     },
-
+    contentSecurityPolicy: {
+      'style-src': "'self' fonts.googleapis.com",
+      'font-src': "'self' fonts.gstatic.com"
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -25,6 +28,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.contentSecurityPolicy['connect-src'] += " 10.0.1.220";
   }
 
   if (environment === 'test') {

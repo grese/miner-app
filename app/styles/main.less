@@ -1,0 +1,144 @@
+@import "variables";
+// Site-wide & general styles:
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+.nav .device-name-text{
+  color: #fff;
+  display: block;
+  margin-top: 15px;
+  margin-right: 7px;
+}
+.nav .device-name-text, .nav .login-icon{
+  display: inline;
+}
+.danger, .alert-danger, .btn-danger{
+  background-color: #d9534f;
+  border-color: #C94D49;
+}
+.no-padding{
+  padding: 0;
+}
+.table-responsive{
+  position: relative;
+  overflow-x: scroll;
+}
+.muted-text{
+  color: #898989;
+  font-size: 0.8em;
+}
+.site-navbar{
+  z-index: @navbar-z-index;
+}
+.site-navbar.navbar ul.nav li a:hover{
+  background: #151515;
+}
+.success{
+  color: #43ac6a;
+}
+.danger, .error{
+  color: #f04124;
+}
+.italic{
+  font-style: italic;
+}
+.bold{
+  font-style: bold;
+}
+input.error{
+  border-color: #f04124;
+}
+label.error{
+  color: #f04124;
+  display: block;
+}
+#application-outlet-container.container{
+  padding-left: 0;
+  padding-right: 0;
+  width: 90%;
+}
+ul.dropdown-menu li button{
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: right;
+  padding: 11px;
+}
+ul.dropdown-menu li button:hover{
+  background: #ccc;
+}
+ul.dropdown-menu li .menu-button-icon{
+  float: left;
+}
+
+// Bootstrap-switch overrides:
+.bootstrap-switch.bootstrap-switch-mini{
+  min-width: 55px;
+}
+
+
+// Footer styles:
+#footer {
+  padding-top: 50px;
+}
+#footer #copyright{
+  font-size: 10px;
+  text-align: center;
+  color: #999;
+}
+
+
+// Loading Spinner Styles:
+#loading-spinner{
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: @loading-z-index;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(180, 182, 185, 0.7);
+}
+#loading-spinner .spinner-icon{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  margin-left: -35px;
+  color: #333;
+}
+
+// Hero div styles:
+#hero-container{
+  margin-top: -21px;
+}
+.hero-icon{
+  display: inline-block;
+  font-size: 2.5em;
+}
+.hero-title{
+  display: inline-block;
+  margin-top: 0;
+}
+
+// Navbar login form:
+#navbar-login-form input[type='text'],
+#navbar-login-form input[type='password']{
+  margin-bottom: 2px;
+}
+.header-login-container button.logout-btn{
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 15px 20px;
+  width: 100%;
+  text-align: left;
+}
+.header-login-container button.logout-btn:hover{
+  background: #555;
+}
+
+.iPhone input[type="text"], .iPhone input[type="password"],
+.iPhone input[type="phone"], .iPhone textarea {
+  font-size:16px;
+}

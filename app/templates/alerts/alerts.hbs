@@ -1,0 +1,20 @@
+<h3>Alerts</h3>
+<div class="well perf-expectations-well">
+    {{outlet "alert"}}
+    <h4>Performance Expectations:</h4>
+    <div class="row perf-expectations-container {{if perfExpSetting.value.enabled '' 'perf-expectations-disabled'}}">
+        <div class="col-md-1">
+            <div class='perf-expectations-enabled-switch'>
+                {{view 'elements.switch' checked=perfExpSetting.value.enabled}}
+            </div>
+        </div>
+        <div class="col-md-2 num-devices-container">
+            <label># of Devices:</label>
+            {{input class='form-control' disabled=isPerfExpEnabled type='number' step='1' min=0 max=256 value=perfExpSetting.value.numDevices}}
+        </div>
+        <div class="col-md-2 num-mhs-container">
+            <label>Total Mh/s:</label>
+            {{input class='form-control' disabled=isPerfExpEnabled type='number' step='1' min=0 value=perfExpSetting.value.numMhs}}
+        </div>
+    </div>
+</div>

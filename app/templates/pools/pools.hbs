@@ -1,0 +1,24 @@
+<h3>Pools</h3>
+<div class="well">
+    {{outlet "alert"}}
+    <div class="row pools-list-controls-container">
+        <div class="col-md-9 col-xs-12 pools-strategy-container {{if isMobile 'mobile'}}">
+            {{render 'pools.strategy' controller='pools.strategy'}}
+        </div>
+        <div class="col-md-3">
+            <button class="pools-new btn btn-success btn-xs pull-right" {{action 'newPool'}}>
+                <i class="fa fa-plus-square fa-lg"></i>&nbsp;&nbsp;Add Pool
+            </button>
+        </div>
+    </div>
+    <hr/>
+    <div class="list-group">
+        {{#each pool in poolsByPriority}}
+            {{#if isMobile}}
+                {{render 'pools.pool-config-mobile' pool}}
+            {{else}}
+                {{render 'pools.pool-config' pool}}
+            {{/if}}
+        {{/each}}
+    </div>
+</div>
